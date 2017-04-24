@@ -22,9 +22,9 @@ public class LootGenerator {
 			boolean includeS = suffixes.pick();
 
 
-			System.out.println("Fighting" + monster);
-			System.out.println("You have slain" + monster + "!");
-			System.out.println(monster + "dropped:");
+			System.out.println("Fighting " + monster);
+			System.out.println("You have slain " + monster + "!");
+			System.out.println(monster + " dropped:" + "\n");
 
 			if (includeP && includeS) {
 				int randomP = prefixes.randomIndex();
@@ -37,8 +37,8 @@ public class LootGenerator {
 				String codeS = suffixes.codeName(randomS);
 				int boostS = suffixes.boostVal(randomS);
 
-				System.out.printf(prefix + " " + item + " " + suffix);
-				System.out.printf("Defense: " + itemBoost);
+				System.out.println(prefix + " " + item + " " + suffix);
+				System.out.printf("Defense: " + itemBoost + "\n");
 
 				System.out.print(boostP + " ");
 				System.out.println(codeP);

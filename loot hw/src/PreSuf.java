@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 import java.io.*;
 
 public class PreSuf {
@@ -9,9 +10,15 @@ public class PreSuf {
 	private ArrayList<Integer> max;
 
 	public PreSuf(File file) throws FileNotFoundException {
+		
+		name = new ArrayList<String>();
+		code = new ArrayList<String>();
+		min = new ArrayList<Integer>();
+		max = new ArrayList<Integer>();
+		
 		Scanner sn = new Scanner(file);
 		while(sn.hasNextLine()) {
-			String[] columns = sn.nextLine().split("/t");
+			String[] columns = sn.nextLine().split("\t");
 			name.add(columns[0]);
 			code.add(columns[1]);
 			min.add(Integer.parseInt(columns[2]));
@@ -34,7 +41,7 @@ public class PreSuf {
 	 * @return a random int 
 	 */
 	public int randomIndex() {
-		Random rnd = new Random();
+		Random rnd = ThreadLocalRandom.current();
 		int rndIndex = rnd.nextInt(name.size());
 		return rndIndex;
 	}
@@ -66,7 +73,7 @@ public class PreSuf {
 	public int boostVal(int index) {
 		int minimum = min.get(index);
 		int maximum = max.get(index);
-		Random rnd = new Random();
+		Random rnd = ThreadLocalRandom.current();
 		int ret = minimum + rnd.nextInt(maximum - minimum + 1);
 		return ret;
 	}

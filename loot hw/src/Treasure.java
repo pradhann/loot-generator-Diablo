@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 import java.io.*;
 
 public class Treasure {
@@ -10,7 +11,7 @@ public class Treasure {
 		Scanner in = new Scanner(file);
 
 		while (in.hasNextLine()) {
-			String[] columns = in.nextLine().split("/t");
+			String[] columns = in.nextLine().split("\t");
 			ArrayList<String> items = new ArrayList<>();
 			items.add(columns[1]);
 			items.add(columns[2]);
@@ -25,7 +26,7 @@ public class Treasure {
 
 		while (treasures.containsKey(baseItem)) {
 			ArrayList<String> items = treasures.get(baseItem);
-			Random rnd = new Random();
+			Random rnd =  ThreadLocalRandom.current();
 			baseItem = getbaseItem(items.get(rnd.nextInt(items.size())));
 		}
 		return baseItem;

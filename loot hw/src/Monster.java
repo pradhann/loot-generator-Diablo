@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Monster {
 	
@@ -23,9 +24,10 @@ public class Monster {
 	}
 	
 	public String pickMonster() {
-		Random gen = new Random();
+		Random gen = ThreadLocalRandom.current();
 		List<String> monsters = new ArrayList<String>(monster.keySet());
-		String rndMonster = monster.get(gen.nextInt(monsters.size()));
+		int index = gen.nextInt(monsters.size());
+		String rndMonster = monsters.get(index);
 		return rndMonster;
 	}
 
