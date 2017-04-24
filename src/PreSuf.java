@@ -29,23 +29,41 @@ public class PreSuf {
 		int n = rnd.nextInt(2);
 		return n > 0;
 	}
-	
+	/**
+	 * produces a random int to select from the names
+	 * @return a random int 
+	 */
 	public int randomIndex() {
 		Random rnd = new Random();
 		int rndIndex = rnd.nextInt(name.size());
 		return rndIndex;
-		
 	}
+	/**
+	 * returns the String from the provided random index
+	 * @param index
+	 * @return String at index from names 
+	 */
 	public String randomAffix(int index) {
 		String ret = name.get(index);
 		return ret;
 	}
 	
+	/**
+	 * return the String from the provided index from code
+	 * @param index
+	 * @return String at index from code
+	 */
+	
 	public String codeName(int index) {
 		return code.get(index);
 	}
 	
-	public int boostval(int index) {
+	/**
+	 * boost value within the range 
+	 * @param index
+	 * @return an int that indicates the boost of the affix
+	 */
+	public int boostVal(int index) {
 		int minimum = min.get(index);
 		int maximum = max.get(index);
 		Random rnd = new Random();

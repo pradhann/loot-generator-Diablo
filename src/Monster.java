@@ -27,7 +27,10 @@ public class Monster {
 		List<String> monsters = new ArrayList<String>(monster.keySet());
 		String rndMonster = monster.get(gen.nextInt(monsters.size()));
 		return rndMonster;
-		
 	}
 
+	public String monTreasure(String randomMonster) {
+		String ret = monster.get(randomMonster);
+		return ret;
+	}
 }
